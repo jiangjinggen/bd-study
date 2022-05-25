@@ -1,0 +1,83 @@
+core-site.xml
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://bigdata01:9000</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/data/hadoop_repo</value>
+   </property>
+</configuration>
+
+
+
+
+hdfs-site.xml
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+
+
+
+
+mapred-site.xml
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+</configuration>
+
+
+
+
+yarn-site.xml
+<configuration>
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+    <property>
+        <name>yarn.nodemanager.env-whitelist</name>
+   <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+    </property>
+</configuration>
+
+
+
+
+workers
+bigdata01
+
+
+
+
+
+start-dfs.sh
+HDFS_DATANODE_USER=root
+HDFS_DATANODE_SECURE_USER=hdfs
+HDFS_NAMENODE_USER=root
+HDFS_SECONDARYNAMENODE_USER=root
+
+
+stop-dfs.sh
+HDFS_DATANODE_USER=root
+HDFS_DATANODE_SECURE_USER=hdfs
+HDFS_NAMENODE_USER=root
+HDFS_SECONDARYNAMENODE_USER=root
+
+
+start-yarn.sh
+YARN_RESOURCEMANAGER_USER=root
+HADOOP_SECURE_DN_USER=yarn
+YARN_NODEMANAGER_USER=root
+
+
+stop-yarn.sh
+YARN_RESOURCEMANAGER_USER=root
+HADOOP_SECURE_DN_USER=yarn
+YARN_NODEMANAGER_USER=root
